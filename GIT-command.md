@@ -7,6 +7,8 @@ Add New project on the repositiry
 5. git add remote origin link
 6. git push -u origin main
 
+git branch   : check the current branch status
+
 
 Now Project:
 1. git add .
