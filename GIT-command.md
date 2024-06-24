@@ -20,3 +20,8 @@ OR  (if you are working on the group in the same branch of project)
 2. git commit -m "Feat: add about page"
 3. git pull
 4. git push origin main
+
+
+clone the project:
+
+git clone link
