@@ -93,11 +93,12 @@ DELETE  : To Delete data
 Pre-defined Functions:
 mysqli();               : Connect to PHP and MYSQL
 mysqli_connect();       : ,,
-mysqli_query();         : Connect to mysqli query and Queries 
+mysqli_query();         : Connect to conenct query and Queries 
 mysqli_fetch_assoc()    : To fetch signle row data from the database
 mysqli_fetch_array()    : To fetch all data from the database
 session_start();        : start the session for cookies
 session_destory();      : destory(Clear) all the cookies stored data
+mysqli_num_rows();      : Read each row data
 
 
 Golbal Variables:
