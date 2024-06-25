@@ -60,4 +60,51 @@ RENAME COLUMN old_name to new_name;
 -------------------------------------------------------------------
 
 
-php
+php : HyperText Preprocessor
+    : Server side scripting PL
+
+    Syntax:
+
+    <?php
+    
+    //code 
+     ?>
+
+To create variable using PHP
+user define variable
+
+$variable= Value;
+e.g.
+$x=10;
+
+
+To Print using php
+
+echo "message";  ✔
+print("Message");
+
+Methods:
+POST    : Insert Data into Database
+GET     : Fetch Data from the database
+PUT     : Edit the data
+DELETE  : To Delete data
+
+
+Pre-defined Functions:
+mysqli();               : Connect to PHP and MYSQL
+mysqli_connect();       : ,,
+mysqli_query();         : Connect to mysqli query and Queries 
+mysqli_fetch_assoc()    : To fetch signle row data from the database
+mysqli_fetch_array()    : To fetch all data from the database
+session_start();        : start the session for cookies
+session_destory();      : destory(Clear) all the cookies stored data
+
+
+Golbal Variables:
+
+$_POST['string'];
+$_GET['string'];
+$_SESSION['string'];
+
+
+
