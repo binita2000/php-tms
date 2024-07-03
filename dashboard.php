@@ -3,8 +3,9 @@
 session_start();
 
 if (!isset($_SESSION['email'])) {
-} else {
-    echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?msg=error\">";
+    // Redirect the user to the login page if not logged in
+    header("Location: index.php");
+    exit(); // Ensure script execution stops after redirection
 }
 
 ?>
@@ -76,6 +77,20 @@ if (!isset($_SESSION['email'])) {
             </div>
         </div>
     </nav>
+
+    <?php
+
+if(isset($_GET['msg'])){
+    $msg= $_GET['msg'];
+
+    if($msg=='success'){
+        echo "Login successfully";
+        header("Refresh:2; URL=dashboard.php");
+    }
+}
+
+
+?>
 
     <section>
         <div class="container py-5">

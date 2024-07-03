@@ -15,17 +15,39 @@
             <div class="title">
                 <h3>Login</h3>
             </div>
-            <form>
+            <?php
+
+            if(isset($_GET['msg'])){
+                $msg= $_GET['msg'];
+
+                if($msg=='email_error'){
+                    echo "email does not Match ";
+                    // header("Refresh:2; URL=index.php");
+
+                }
+                if($msg=='password_error'){
+                    echo "password does not match";
+                }
+                if($msg=='not_found'){
+                    echo "user is not found";
+                }
+                if($msg=='required'){
+                    echo "Email and password are required";
+                }
+            }
+            
+            
+            ?>
+            <form action="auth/login.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-               <p> Don't have an account  <a href="dashboard.php">Dashboard</a></p>
+                <button type="submit" name="login" class="btn btn-primary btn-sm">Submit</button>
                <p> Don't have an account  <a href="register.php">Sign Up</a></p>
             </form>
         </div>

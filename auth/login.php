@@ -1,37 +1,37 @@
 <?php
-require ('../config/config.php');
+require("../config/config.php");
+session_start();
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     if ($email != "" && $password != "") {
-        $query = "SELECT * FROM users WHERE email='$email' ";
-        $result = mysqli_query($conn, $query);
-        // var_dump($result);
-        // $count = mysqli_num_rows($result);
-        // var_dump($count);
+        $check = "SELECT * FROM users WHERE email='$email'";
+        $result = mysqli_query($conn, $check);
 
-        if ($result->num_rows === 1) {
-            $user = $result->fetch_assoc();
-            // var_dump($user);
-            if (password_verify($password, $user["password"])) {
-                session_start();
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['email'] = $user['email'];
+        if ($result) {
+            $row = mysqli_fetch_assoc($result);
+            if ($row) {
+                if (password_verify($password, $row['password'])) {
+                    
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['name'] = $row['name'];
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['email'] = $row['email'];
 
-                echo header("Location: ../dashboard.php?msg=login_success");
+                    echo "Login successful.";
+                    header("Refresh:0; url=../dashboard.php?msg=success");
+                } else {
+                    header("Refresh:0; url=../index.php?msg=password_error");
+                }
             } else {
-                echo header("Location: ../index.php?msg=password_error");
+                header("Refresh:0; url=../index.php?msg=not_found");
             }
-
         } else {
-            echo header("Location: ../index.php?msg=login_failed");
+            header("Refresh:0; url=../index.php?msg=email_error");
         }
     } else {
-        echo "All fields are necessary.";
-        header('Refresh: 1; url=../index.php');
+        header("Refresh:0; url=../index.php?msg=required");
     }
 }
-?>
