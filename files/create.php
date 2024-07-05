@@ -44,7 +44,7 @@ require('../includes/navbar.php');
                                 $result= mysqli_query($conn, $insert);
                                 if($result){
                                     echo "File is submitted";
-                                    header("Refresh:2; URL=index.php");
+                                    header("Refresh:0; URL=index.php");
                                 }
                                 else{
                                     echo " File is not submitted";
